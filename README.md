@@ -79,7 +79,7 @@ AvonThread/
 ## 👨‍💻 Author
 
 **Abdul Kareem**
-🔗 [GitHub](https://github.com/imabkareem) | [LinkedIn](#)
+🔗 [GitHub](https://github.com/imabkareem) | [LinkedIn](https://www.linkedin.com/in/imabkareem/ )
 
 ---
 
