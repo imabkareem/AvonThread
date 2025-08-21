@@ -65,14 +65,14 @@ AvonThread/
 
    ```bash
    cd backend
-   npm start
+   npm run dev
    ```
 
    🔹 Frontend (React App)
 
    ```bash
    cd frontend
-   npm start
+   npm run dev
    ```
 
 ---
