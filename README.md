@@ -29,26 +29,8 @@ AvonThread is a **full-stack MERN application** that includes **user authenticat
    ```bash
    git clone https://github.com/imabkareem/AvonThread.git
    cd AvonThread
-
----
-
-
 2.Install dependencies:
+  ```bash
   cd backend && npm install
   cd ../frontend && npm install
-
----
-
 3.Create an .env file in backend/
-  PORT=5000
-  MONGO_URI=your-mongodb-uri
-  JWT_SECRET=your-secret
-  
----
-4.Run the app
-Start backend
-cd backend
-npm run dev
-Start frontend
-cd ../frontend
-npm dev
