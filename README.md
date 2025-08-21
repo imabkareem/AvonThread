@@ -33,4 +33,3 @@ AvonThread is a **full-stack MERN application** that includes **user authenticat
   ```bash
   cd backend && npm install
   cd ../frontend && npm install
-3.Create an .env file in backend/
