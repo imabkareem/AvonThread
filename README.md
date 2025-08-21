@@ -46,12 +46,9 @@ AvonThread is a **full-stack MERN application** that includes **user authenticat
   
 ---
 4.Run the app
-  # Start backend
+Start backend
 cd backend
 npm run dev
-
----
-
-# Start frontend
+Start frontend
 cd ../frontend
 npm dev
