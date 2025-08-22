@@ -56,6 +56,12 @@ app.use("/api/admin/products", productAdminRoutes);
 //API order admin Routes
 app.use("/api/admin/orders", orderAdminRoutes);
 
+const __dirname1 = path.resolve();
+app.use(express.static(path.join(__dirname1, "/client/dist")));
+
+app.get("*", (req, res) =>
+  res.sendFile(path.resolve(__dirname1, "client", "dist", "index.html"))
+);
 
 app.listen(process.env.PORT,()=>{
      console.log(`✅ Server is running on: http://localhost:${PORT}`);
