@@ -76,17 +76,10 @@ AvonThread/
    ```
 
 ---
-
-## 📸 Screenshots
-
-(Add some images of your project UI here)
-
----
-
 ## 👨‍💻 Author
 
 **Abdul Kareem**
-🔗 [GitHub](https://github.com/imabkareem) | [LinkedIn](#)
+🔗 [GitHub](https://github.com/imabkareem) | [LinkedIn](https://www.linkedin.com/in/imabkareem/ )
 
 ---
 
