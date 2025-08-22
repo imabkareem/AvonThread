@@ -23,7 +23,7 @@ dotenv.config()
  //connect  mongo db database
  connectDB()
 app.get("/",(req,res)=>{
-    res.send("Welcome to rabbit!")
+    res.send("Welcome to AvonThread!")
 })
 
 //API user ROUTES
