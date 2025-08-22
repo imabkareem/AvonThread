@@ -1,7 +1,7 @@
 const express = require("express")
-
 const cors = require("cors")
 const dotenv = require("dotenv")
+const path = require('path');
 const connectDB = require("./config/db")
 const  userRoutes = require("./routes/userRoutes")
 const productRoutes = require("./routes/productRoutes")
@@ -56,6 +56,14 @@ app.use("/api/admin/products", productAdminRoutes);
 
 //API order admin Routes
 app.use("/api/admin/orders", orderAdminRoutes);
+
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Handle client-side routing - return index.html for all other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+});
 
 
 
