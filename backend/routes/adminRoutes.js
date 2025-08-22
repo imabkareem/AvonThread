@@ -46,7 +46,7 @@ router.post("/", auth, admin, async (req, res) => {
 //@route PUT/api/admin/users/:id
 //@desc Update a user (Admin only)
 //@access Private/Admin
-router.put("/:id",auth,admin,async(req,res)=>{
+router.put("/:id", auth, admin, async(req,res) => {
   try{
     const user = await User.findById(req.params.id);
     if(user){
@@ -57,7 +57,7 @@ router.put("/:id",auth,admin,async(req,res)=>{
     await user.save()
     res.json(user)
   }catch(error){
-    console.error()
+    console.error(error)
     res.status(500).json({ message: "Server Error" });
   }
 })
