@@ -18,9 +18,6 @@ const getCart = async (userId,guestId)=>{
     }
     return null;
 }
-   
-
-
 //@route POST/api/cart
 //@desc Add item to cart
 //@access Public
@@ -45,7 +42,6 @@ router.post('/', async (req, res) => {
                 p.color === color  
             );
            
-          
             if (productIndex > -1) {
                 // If the product already exists, update the quantity
                 cart.products[productIndex].quantity += quantity
@@ -255,101 +251,5 @@ router.post("/merge", auth, async (req, res) => {
     res.status(500).json({message:"Server Error"})
   }
 });
-
-// router.post("/merge", auth, async (req, res) => {
-//   const { guestId } = req.body;
-
-//   try {
-//     const guestCart = await Cart.findOne({ guestId });
-//     const userCart = await Cart.findOne({ user: req.user._id });
-
-//     if (guestCart) {
-//       if (guestCart.products.length === 0) {
-//         return res.status(400).json({ message: "Guest cart is empty" });
-//       }
-
-//       if (userCart) {
-//         // Merge guest items into existing user cart
-//         for (const guestItem of guestCart.products) {
-//           const existingItem = userCart.products.find(
-//             (item) =>
-//               item.productId.toString() === guestItem.productId.toString() &&
-//               item.size === guestItem.size &&
-//               item.color === guestItem.color
-//           );
-
-//           if (existingItem) {
-//             // Increment quantity if product exists
-//             await Cart.updateOne(
-//               { _id: userCart._id, "products._id": existingItem._id },
-//               { $inc: { "products.$.quantity": guestItem.quantity } }
-//             );
-//           } else {
-//             // Push new product into cart
-//             await Cart.updateOne(
-//               { _id: userCart._id },
-//               { $push: { products: guestItem } }
-//             );
-//           }
-//         }
-
-//         // Recalculate total price
-//         const updatedCart = await Cart.findById(userCart._id);
-//         const totalPrice = updatedCart.products.reduce(
-//           (acc, item) => acc + item.price * item.quantity,
-//           0
-//         );
-
-//         await Cart.updateOne(
-//           { _id: userCart._id },
-//           {
-//             $set: {
-//               totalPrice,
-//               user: req.user._id, // Ensure correct user is set
-//               guest: guestId      // Store merged guestId for reference
-//             }
-//           }
-//         );
-
-//         // Remove guest cart after merging
-//         await Cart.deleteOne({ _id: guestCart._id });
-
-//         return res.json(await Cart.findById(userCart._id));
-
-//       } else {
-//         // No existing user cart → assign guest cart to user
-//         await Cart.updateOne(
-//           { _id: guestCart._id },
-//           {
-//             $set: {
-//               user: req.user._id,
-//               guest: guestId
-//             },
-//             $unset: { guestId: "" }
-//           }
-//         );
-
-//         return res.status(200).json(await Cart.findById(guestCart._id));
-//       }
-
-//     } else {
-//       if (userCart) {
-//         // No guest cart found but user already has cart → update guest field for tracking
-//         await Cart.updateOne(
-//           { _id: userCart._id },
-//           { $set: { guest: guestId } }
-//         );
-//         return res.status(200).json(userCart);
-//       }
-//       return res.status(404).json({ message: "Guest cart not found" });
-//     }
-
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Server Error" });
-//   }
-// });
-
-
 
 module.exports = router;
