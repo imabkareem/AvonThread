@@ -57,16 +57,6 @@ app.use("/api/admin/products", productAdminRoutes);
 //API order admin Routes
 app.use("/api/admin/orders", orderAdminRoutes);
 
-// Serve static files from React build
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// Handle client-side routing - return index.html for all other requests
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-});
-
-
-
 app.listen(process.env.PORT,()=>{
      console.log(`Server is running on: http://localhost:${PORT}`);
 })
