@@ -76,7 +76,7 @@ AvonThread/
    ```
 ---
 **Live Link**
-🔗 [Click me](https://github.com/imabkareem](https://avonthread.onrender.com) 
+🔗 [Click me](https://avonthread.onrender.com) 
 
 
 ---
